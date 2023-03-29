@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-amber-50;
+}
+
+.nav-logo {
+  transform: translateY(-10px);
+}
+
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+
+  margin-top: 5px;
+}
+
+.hamburger-top,
+.hamburger-mid,
+.hamburger-bot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: black;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+.hamburger-mid {
+  transform: translateY(7px);
+}
+.hamburger-bot {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-mid {
+  display: none;
+}
+
+.open .hamburger-bot {
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+.menu-mobile-open {
+  animation: 0.5s linear showMenu;
+}
+
+.menu-mobile-close {
+  animaiton: 0.5s linear closeMenu;
+}
+
+@keyframes showMenu {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.loadingSpinnerContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingSpinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: #00cc66 transparent #00cc66 transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
